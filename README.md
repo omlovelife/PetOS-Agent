@@ -37,7 +37,11 @@ npm run build
 
 ## 发布安装包
 
-安装包**不要**提交进 git。使用 GitHub Releases 上传，例如：
+安装包**不要**提交进 git。正常流程由私有主仓 `PetOS` 的 GitHub Actions 在打 `v*.*.*` tag 后自动上传到本仓 Releases（Win / macOS 各自 job 往同一 Release 追加产物）。
+
+主仓需配置 Secret：`PETOS_AGENT_RELEASE_TOKEN`（能写本仓 `contents` 的 PAT）。
+
+手动补传示例：
 
 ```bash
 gh release create v0.1.0 ./PetOS-Setup-0.1.0.exe ./latest.yml \
@@ -46,7 +50,7 @@ gh release create v0.1.0 ./PetOS-Setup-0.1.0.exe ./latest.yml \
   --notes "PetOS 桌面端 0.1.0"
 ```
 
-开发在私有主仓进行；本仓只承载官网与公开发版产物。
+开发在私有主仓进行；本仓只承载官网与公开发版产物。客户端热更新也指向本仓。
 
 ## 联系
 
