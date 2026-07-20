@@ -1,0 +1,15 @@
+node_modules/
+web/dist/
+.DS_Store
+*.log
+.vercel
+.env
+.env.*
+*.exe
+*.dmg
+*.zip
+*.blockmap
+latest.yml
+latest-mac.yml
+release/
+dist-installers/
