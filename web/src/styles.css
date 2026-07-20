@@ -320,13 +320,13 @@ a:hover {
   text-wrap: pretty;
 }
 
-.presence {
+.understand {
   background:
     radial-gradient(ellipse 80% 60% at 10% 0%, oklch(0.93 0.04 155 / 0.7), transparent 55%),
     var(--bg);
 }
 
-.presence-list {
+.understand-list {
   list-style: none;
   margin: 2.75rem 0 0;
   padding: 0;
@@ -335,28 +335,106 @@ a:hover {
   border-top: 1px solid var(--line);
 }
 
-.presence-list li {
+.understand-list li {
   display: grid;
-  grid-template-columns: minmax(5rem, 7rem) 1fr;
-  gap: 1rem 1.5rem;
-  padding: 1.35rem 0;
+  grid-template-columns: minmax(10rem, 14rem) 1fr;
+  gap: 1rem 1.75rem;
+  padding: 1.45rem 0;
   border-bottom: 1px solid var(--line);
   align-items: baseline;
 }
 
-.presence-list strong {
+.understand-list strong {
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
-.presence-list span {
+.understand-list span {
   color: var(--muted);
+  max-width: 40rem;
+}
+
+.features {
+  background: var(--bg-soft);
+}
+
+.feature-list {
+  list-style: none;
+  margin: 2.75rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.feature-list li {
+  padding: 1.6rem 1.5rem 1.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.feature-list li:nth-child(odd) {
+  padding-right: clamp(1.25rem, 3vw, 2.5rem);
+  border-right: 1px solid var(--line);
+}
+
+.feature-list li:nth-child(even) {
+  padding-left: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.feature-list h3 {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.feature-list p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 34rem;
+  text-wrap: pretty;
 }
 
 .start {
-  background: var(--bg-soft);
+  background: var(--bg);
+}
+
+.principles {
+  background:
+    linear-gradient(180deg, var(--bg) 0%, oklch(0.97 0.02 220 / 0.45) 100%);
+}
+
+.principle-list {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.principle-list li {
+  display: grid;
+  grid-template-columns: minmax(6rem, 8rem) 1fr;
+  gap: 1rem 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+
+.principle-list strong {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.principle-list span {
+  color: var(--muted);
 }
 
 .steps {
@@ -396,20 +474,6 @@ a:hover {
   margin: 0;
   color: var(--muted);
   max-width: 36rem;
-}
-
-.quiet {
-  background:
-    linear-gradient(180deg, var(--bg) 0%, oklch(0.97 0.02 220 / 0.45) 100%);
-}
-
-.quiet-note {
-  margin: 1.75rem 0 0;
-  max-width: 38rem;
-  padding: 1.1rem 0 0;
-  border-top: 1px solid var(--line);
-  color: var(--ink);
-  font-weight: 500;
 }
 
 .site-footer {
@@ -603,9 +667,21 @@ a:hover {
     display: none;
   }
 
-  .presence-list li {
+  .understand-list li,
+  .principle-list li {
     grid-template-columns: 1fr;
     gap: 0.35rem;
+  }
+
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-list li,
+  .feature-list li:nth-child(odd),
+  .feature-list li:nth-child(even) {
+    padding: 1.35rem 0;
+    border-right: none;
   }
 
   .footer-grid {

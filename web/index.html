@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="PetOS：常驻桌面的宠物 Agent。陪伴、自主活动、自备大模型，数据留在本机。"
+      content="PetOS：更懂你的桌面宠物 Agent。常驻桌面、本地记忆、自备模型，越相处越像你的那一只。"
     />
     <meta name="theme-color" content="#1a3d32" />
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>PetOS · 桌面宠物 Agent</title>
+    <title>PetOS · 更懂你的桌面宠物 Agent</title>
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
@@ -28,9 +28,9 @@
           <span class="brand-word">PetOS</span>
         </a>
         <nav class="top-nav" aria-label="页面导航">
-          <a href="#presence">存在</a>
+          <a href="#understand">更懂你</a>
+          <a href="#features">功能</a>
           <a href="#start">开始</a>
-          <a href="#quiet">安静</a>
           <a class="nav-download" href="#download">下载</a>
         </nav>
       </div>
@@ -52,9 +52,9 @@
         </div>
         <div class="hero-copy">
           <p class="hero-brand" id="hero-brand">PetOS</p>
-          <h1 class="hero-title">桌面宠物 Agent</h1>
+          <h1 class="hero-title">更懂你的桌面宠物 Agent</h1>
           <p class="hero-lead">
-            陪伴 · 自主 · 自备模型。常驻你的桌面，不抢工作，数据留在本机。
+            常驻桌面，记住你们的相处，懂何时搭话、何时安静。密钥与记忆默认留在本机。
           </p>
           <div class="hero-cta" id="download">
             <a
@@ -74,30 +74,75 @@
           </div>
           <p class="hero-meta">
             当前版本 <span id="version-label">0.1.0</span>
-            · 安装包托管于
+            ·
             <a href="https://github.com/omlovelife/PetOS-Agent/releases">GitHub Releases</a>
           </p>
         </div>
       </section>
 
-      <section class="section presence" id="presence" aria-labelledby="presence-title">
+      <section class="section understand" id="understand" aria-labelledby="understand-title">
         <div class="section-inner reveal">
-          <h2 id="presence-title">一只真正待在桌面上的宠物</h2>
+          <h2 id="understand-title">不只是循环动画，是会相处的 Agent</h2>
           <p class="section-lead">
-            透明置顶、可拖动互动、会自己走走停停。想说话时点开气泡；不想被打扰时，它会安静地待着。
+            多数桌面宠物只会重复动作。PetOS 把宠物做成真正的 Agent：感知你何时专注、何时可以搭话，并把经历沉淀成按宠物隔离的本地记忆，越相处越像「你的那一只」。
           </p>
-          <ul class="presence-list">
+          <ul class="understand-list">
             <li>
-              <strong>常驻</strong>
-              <span>无任务栏入口，像贴在桌面上的小生命</span>
+              <strong>记得你们聊过什么</strong>
+              <span>对话与经历按宠物分开保存，不会串台，也不会默认上传。</span>
             </li>
             <li>
-              <strong>互动</strong>
-              <span>点击、拖放、摸摸，有节奏的反应而不是连闪</span>
+              <strong>懂什么时候该安静</strong>
+              <span>专注模式、勿扰时段、话唠程度可调；番茄钟进行时它会收敛存在感。</span>
             </li>
             <li>
-              <strong>对话</strong>
-              <span>桌面气泡是唯一聊天入口，始终以宠物身份回应</span>
+              <strong>始终是宠物，不是客服</strong>
+              <span>桌面气泡是唯一聊天入口，始终以角色身份回应，不跳出人设。</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section features" id="features" aria-labelledby="features-title">
+        <div class="section-inner reveal">
+          <h2 id="features-title">桌面宠物系统能做什么</h2>
+          <p class="section-lead">
+            从常驻存在感到自主活动，再到自备模型与本地数据，围绕「一只真正待在桌面上的宠物」展开。
+          </p>
+          <ul class="feature-list">
+            <li>
+              <h3>常驻桌面的存在感</h3>
+              <p>
+                透明置顶、可拖动互动，会自己走走停停。没有突兀的任务栏入口，像贴在桌面上的小伙伴，而不是又一个窗口。
+              </p>
+            </li>
+            <li>
+              <h3>互动有节奏</h3>
+              <p>点击、拖放、摸摸，会有反应，但不会连闪刷屏。想说话时点开气泡即可。</p>
+            </li>
+            <li>
+              <h3>自主活动的小生命</h3>
+              <p>
+                不说话时也会走走、停停、发呆。主动搭话有冷却与日上限，陪着你，不吵你。
+              </p>
+            </li>
+            <li>
+              <h3>自备模型，数据在本机</h3>
+              <p>
+                填入 OpenAI 兼容的 Base URL、Key 与模型名即可对话。密钥与宠物数据默认只存在你的电脑上；联网能力由你显式配置。
+              </p>
+            </li>
+            <li>
+              <h3>专注时更安静</h3>
+              <p>
+                番茄钟、勿扰时段与话唠程度一起调节存在感。Agent 会感知场景，而不是无脑打扰。
+              </p>
+            </li>
+            <li>
+              <h3>选一只属于你的宠物</h3>
+              <p>
+                内置默认伙伴，也可从 Petdex 或本地文件夹导入。每只宠物有自己的形象、性格与记忆空间。
+              </p>
             </li>
           </ul>
         </div>
@@ -118,29 +163,37 @@
               <span class="step-index" aria-hidden="true">02</span>
               <div>
                 <h3>选一只宠物</h3>
-                <p>内置默认伙伴，也可从 Petdex 或本地文件夹导入。</p>
+                <p>使用默认伙伴，或从 Petdex / 本地文件夹导入你喜欢的形象。</p>
               </div>
             </li>
             <li>
               <span class="step-index" aria-hidden="true">03</span>
               <div>
                 <h3>配置自己的模型</h3>
-                <p>填入 OpenAI 兼容的 Base URL、Key 与模型名，密钥只存在本机。</p>
+                <p>填入 API 后开始对话。密钥只存在本机，PetOS 不提供模型服务本身。</p>
               </div>
             </li>
           </ol>
         </div>
       </section>
 
-      <section class="section quiet" id="quiet" aria-labelledby="quiet-title">
+      <section class="section principles" id="principles" aria-labelledby="principles-title">
         <div class="section-inner reveal">
-          <h2 id="quiet-title">陪着你，不吵你</h2>
-          <p class="section-lead">
-            专注模式、勿扰时段、可调的话唠程度。番茄钟进行时它会更安静。主动搭话有冷却与日上限，不会刷屏。
-          </p>
-          <p class="quiet-note">
-            本地优先：对话与记忆按宠物隔离保存在你的电脑上；联网能力由你显式配置。
-          </p>
+          <h2 id="principles-title">设计原则</h2>
+          <ul class="principle-list">
+            <li>
+              <strong>本地优先</strong>
+              <span>对话与记忆按宠物隔离，默认不出本机。</span>
+            </li>
+            <li>
+              <strong>角色一致</strong>
+              <span>Agent 始终以宠物身份行动与回应。</span>
+            </li>
+            <li>
+              <strong>安静陪伴</strong>
+              <span>可感知场景，主动搭话有节制。</span>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
@@ -150,7 +203,7 @@
       <div class="footer-inner">
         <div class="footer-brand-block">
           <p class="footer-brand">PetOS</p>
-          <p class="footer-tagline">自然、灵动、可信的桌面伙伴。</p>
+          <p class="footer-tagline">更懂你的桌面宠物 Agent。</p>
           <p class="footer-download-line">
             <a href="https://github.com/omlovelife/PetOS-Agent/releases/latest">获取最新安装包</a>
             <span class="dot" aria-hidden="true">·</span>
@@ -163,7 +216,7 @@
             <h3 class="footer-heading">下载</h3>
             <ul>
               <li>
-                <a href="https://github.com/omlovelife/PetOS-Agent/releases/latest">Releases latest</a>
+                <a href="https://github.com/omlovelife/PetOS-Agent/releases/latest">最新版本</a>
               </li>
               <li>
                 <a href="https://github.com/omlovelife/PetOS-Agent/releases">全部版本</a>
@@ -175,7 +228,7 @@
             <ul>
               <li>微信 <span class="mono">lifemindx</span></li>
               <li>
-                <a href="https://github.com/omlovelife/PetOS-Agent">GitHub · PetOS-Agent</a>
+                <a href="https://github.com/omlovelife/PetOS-Agent">GitHub</a>
               </li>
             </ul>
           </div>
@@ -184,7 +237,7 @@
             <ul>
               <li>需自备大模型 API</li>
               <li>密钥与宠物数据默认仅存本机</li>
-              <li>源码开发仓为私有，本仓提供官网与安装包</li>
+              <li>对话记忆按宠物隔离保存</li>
             </ul>
           </div>
         </div>

@@ -1,57 +1,73 @@
-# PetOS-Agent
+# PetOS
 
-PetOS 公开仓：推广落地页 + 安装包发布（GitHub Releases）。
+**更懂你的桌面宠物 Agent。**
 
-**PetOS** 是常驻桌面的宠物 Agent。陪伴、自主活动、自备大模型接口；密钥与数据默认保存在本机。
+一只常驻在桌面上的小生命：会陪伴、会自主活动、会记住你们的相处。对话始终以宠物身份回应；密钥与记忆默认只留在本机。
 
-## 下载
+[下载最新安装包](https://github.com/omlovelife/PetOS-Agent/releases/latest) · Windows / macOS
 
-最新安装包：
+---
 
-**https://github.com/omlovelife/PetOS-Agent/releases/latest**
+## 为什么是「更懂你」
 
-## 推广站
+多数桌面宠物只会循环动画。PetOS 把宠物做成真正的 Agent：它能感知你何时专注、何时可以搭话，并把对话与经历沉淀成**按宠物隔离的本地记忆**，越相处越像「你的那一只」。
 
-源码在 [`web/`](./web)。本地预览：
+- **记得你们聊过什么** — 记忆按宠物分开保存，不会串台
+- **懂什么时候该安静** — 专注模式、勿扰时段、话唠程度可调
+- **始终是宠物，不是客服** — 气泡对话只以角色身份回应，不跳出人设
 
-```bash
-cd web
-npm install
-npm run dev
-```
+---
 
-构建：
+## 功能一览
 
-```bash
-cd web
-npm run build
-```
+### 常驻桌面的存在感
 
-### 部署到 Vercel
+透明置顶、可拖动互动，会自己走走停停。没有突兀的任务栏入口，像贴在桌面上的小伙伴，而不是又一个 App 窗口。
 
-1. Import 本仓库 `omlovelife/PetOS-Agent`
-2. 使用仓库根目录的 `vercel.json`（已配置 `web` 构建与 `web/dist` 输出）
-3. 部署后把官网下载按钮保持指向本仓 Releases 即可
+| 能力 | 说明 |
+| --- | --- |
+| 常驻 | 贴在桌面，不抢工作焦点 |
+| 互动 | 点击、拖放、摸摸，有节奏的反应 |
+| 对话 | 桌面气泡是唯一聊天入口 |
 
-也可在 Vercel 手动设置：Root Directory = `web`，Build = `npm run build`，Output = `dist`。
+### 自主活动的小生命
 
-## 发布安装包
+不说话时也会自己活动：走走、停停、发呆。主动搭话有冷却与日上限，不会刷屏打扰你。
 
-安装包**不要**提交进 git。正常流程由私有主仓 `PetOS` 的 GitHub Actions 在打 `v*.*.*` tag 后自动上传到本仓 Releases（Win / macOS 各自 job 往同一 Release 追加产物）。
+### 自备模型，数据在本机
 
-主仓需配置 Secret：`PETOS_AGENT_RELEASE_TOKEN`（能写本仓 `contents` 的 PAT）。
+填入 OpenAI 兼容的 Base URL、Key 与模型名即可开始对话。密钥与宠物数据默认只存在你的电脑上；联网能力由你显式配置。PetOS 本身不提供模型服务。
 
-手动补传示例：
+### 专注时更安静
 
-```bash
-gh release create v0.1.0 ./PetOS-Setup-0.1.0.exe ./latest.yml \
-  --repo omlovelife/PetOS-Agent \
-  --title "PetOS v0.1.0" \
-  --notes "PetOS 桌面端 0.1.0"
-```
+番茄钟进行时它会收敛存在感；勿扰时段与话唠程度可调。陪着你，不吵你。
 
-开发在私有主仓进行；本仓只承载官网与公开发版产物。客户端热更新也指向本仓。
+### 选一只属于你的宠物
+
+内置默认伙伴，也可从 Petdex 或本地文件夹导入。每只宠物有自己的形象、性格与记忆空间。
+
+---
+
+## 三步开始
+
+1. **安装** — 下载 Windows 或 macOS 安装包，装好后打开即可  
+2. **选宠物** — 使用默认伙伴，或导入你喜欢的形象  
+3. **配置模型** — 填入自己的 API，开始和它说话  
+
+安装包发布在 [GitHub Releases](https://github.com/omlovelife/PetOS-Agent/releases/latest)。
+
+---
+
+## 设计原则
+
+- **本地优先** — 对话与记忆按宠物隔离，默认不出本机  
+- **角色一致** — Agent 始终以宠物身份行动与回应  
+- **安静陪伴** — 可感知场景，主动搭话有节制  
+
+---
 
 ## 联系
 
 微信：`lifemindx`
+
+官网源码见 [`web/`](./web)。
