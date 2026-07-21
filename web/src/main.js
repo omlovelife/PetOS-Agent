@@ -1,14 +1,113 @@
+import {
+  DEFAULT_LOCALE,
+  applyI18n,
+  localeFromPath,
+  pathForLocale,
+  t,
+} from './i18n/index.js'
+
 const RELEASE_API =
   'https://api.github.com/repos/omlovelife/PetOS-Agent/releases/latest'
 
 const FALLBACK_RELEASES_PAGE =
   'https://github.com/omlovelife/PetOS-Agent/releases/latest'
 
+const LANG_STORAGE_KEY = 'petos-lang'
+const LANG_MANUAL_KEY = 'petos-lang-manual'
+
 /** @typedef {{ name: string, browser_download_url: string }} ReleaseAsset */
 /** @typedef {{ tag_name?: string, assets?: ReleaseAsset[] }} ReleasePayload */
 
+/** @type {ReleasePayload | null} */
+let cachedRelease = null
+
 const yearEl = document.getElementById('year')
 if (yearEl) yearEl.textContent = String(new Date().getFullYear())
+
+let currentLocale = resolveInitialLocale()
+applyI18n(currentLocale)
+syncHistoryPath(currentLocale, true)
+
+/**
+ * Priority:
+ * 1. Explicit locale path (/en/, /ja/, …) when not root
+ * 2. Manual choice from the language switcher
+ * 3. Browser language
+ */
+function resolveInitialLocale() {
+  const fromPath = localeFromPath(window.location.pathname)
+  const pathIsRoot =
+    window.location.pathname === '/' ||
+    window.location.pathname === '' ||
+    window.location.pathname === '/index.html'
+
+  if (!pathIsRoot) return fromPath
+
+  if (window.localStorage.getItem(LANG_MANUAL_KEY) === '1') {
+    const saved = window.localStorage.getItem(LANG_STORAGE_KEY)
+    if (saved) return saved
+  }
+
+  return detectPreferredLocale() || DEFAULT_LOCALE
+}
+
+/**
+ * Only remember language after an explicit user choice.
+ * @param {string} locale
+ */
+function persistManualLocale(locale) {
+  window.localStorage.setItem(LANG_STORAGE_KEY, locale)
+  window.localStorage.setItem(LANG_MANUAL_KEY, '1')
+}
+
+/**
+ * @param {string} locale
+ * @param {boolean} [replace]
+ */
+function syncHistoryPath(locale, replace = false) {
+  const targetPath = pathForLocale(locale)
+  const hash = window.location.hash || ''
+  const nextUrl = `${targetPath}${hash}`
+  const currentPath = window.location.pathname.endsWith('/')
+    ? window.location.pathname
+    : `${window.location.pathname}/`
+  const normalizedCurrent =
+    currentPath === '//' || currentPath === '/index.html/' ? '/' : currentPath.replace(/\/index\.html\/?$/, '/')
+  const normalizedTarget = targetPath
+
+  if (normalizedCurrent === normalizedTarget && window.location.hash === hash) return
+
+  if (replace) window.history.replaceState({ locale }, '', nextUrl)
+  else window.history.pushState({ locale }, '', nextUrl)
+}
+
+/**
+ * @param {string} locale
+ * @param {{ push?: boolean, manual?: boolean }} [opts]
+ */
+function setLocale(locale, opts = {}) {
+  currentLocale = applyI18n(locale)
+  if (opts.manual) persistManualLocale(currentLocale)
+  if (opts.push !== false) syncHistoryPath(currentLocale, false)
+
+  if (cachedRelease) applyRelease(cachedRelease)
+  else {
+    const status = document.getElementById('download-status')
+    if (status) status.textContent = t('downloadLoading')
+  }
+}
+
+const langSwitch = document.getElementById('lang-switch')
+if (langSwitch instanceof HTMLSelectElement) {
+  langSwitch.value = currentLocale
+  langSwitch.addEventListener('change', () => {
+    setLocale(langSwitch.value, { manual: true })
+  })
+}
+
+window.addEventListener('popstate', () => {
+  setLocale(localeFromPath(window.location.pathname), { push: false })
+})
 
 /**
  * @param {ReleaseAsset[]} assets
@@ -22,7 +121,6 @@ function pickWinAsset(assets) {
 }
 
 /**
- * Prefer Apple Silicon dmg, then any dmg, then zip.
  * @param {ReleaseAsset[]} assets
  * @returns {ReleaseAsset | undefined}
  */
@@ -65,7 +163,6 @@ function armDownloadButton(el, url) {
 }
 
 /**
- * Trigger file download without navigating to GitHub UI.
  * @param {string} url
  */
 function startFileDownload(url) {
@@ -96,15 +193,14 @@ function applyRelease(release) {
   const win = pickWinAsset(assets)
   const mac = pickMacAsset(assets)
   const version = (release.tag_name || '').replace(/^v/i, '') || 'latest'
+  const versionLabel = version.startsWith('v') ? version : `v${version}`
 
   setVersionLabels(version)
 
   const status = document.getElementById('download-status')
   if (status) {
     status.textContent =
-      win || mac
-        ? `已从 GitHub 获取最新 v${version}，点击直接下载安装包`
-        : '暂未找到安装包，请稍后再试'
+      win || mac ? t('downloadReady', { version: versionLabel }) : t('downloadMissing')
   }
 
   document.querySelectorAll('[data-download="win"]').forEach((el) => {
@@ -140,9 +236,10 @@ async function loadLatestRelease() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     /** @type {ReleasePayload} */
     const data = await res.json()
+    cachedRelease = data
     applyRelease(data)
   } catch {
-    if (status) status.textContent = '获取最新版本失败，将打开发布页作为备选'
+    if (status) status.textContent = t('downloadFailed')
     document.querySelectorAll('[data-download]').forEach((el) => {
       if (el instanceof HTMLAnchorElement) armDownloadButton(el, undefined)
     })
@@ -195,6 +292,35 @@ if (!supportsViewTimeline && !matchMedia('(prefers-reduced-motion: reduce)').mat
     node.classList.add('reveal-js')
     io.observe(node)
   })
+}
+
+/** @returns {string | null} */
+function detectPreferredLocale() {
+  const langs = navigator.languages?.length
+    ? [...navigator.languages]
+    : [navigator.language || '']
+  if (navigator.language && !langs.includes(navigator.language)) {
+    langs.unshift(navigator.language)
+  }
+
+  for (const raw of langs) {
+    const tag = String(raw || '').toLowerCase().replace('_', '-')
+    if (!tag) continue
+    if (
+      tag === 'zh-tw' ||
+      tag === 'zh-hk' ||
+      tag === 'zh-mo' ||
+      tag.startsWith('zh-hant') ||
+      tag === 'zh-cht'
+    ) {
+      return 'zh-TW'
+    }
+    if (tag.startsWith('zh')) return 'zh-CN'
+    if (tag.startsWith('ja')) return 'ja'
+    if (tag.startsWith('ko')) return 'ko'
+    if (tag.startsWith('en')) return 'en'
+  }
+  return null
 }
 
 loadLatestRelease()
