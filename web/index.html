@@ -133,16 +133,24 @@
             >
               下载 Windows
             </a>
-            <a
-              class="btn btn-secondary"
-              href="#download"
-              data-download="mac"
-              data-i18n="downloadMac"
-              id="btn-mac"
-              aria-disabled="true"
-            >
-              下载 macOS
-            </a>
+            <div class="mac-download">
+              <a
+                class="btn btn-secondary"
+                href="#download"
+                data-download="mac"
+                data-i18n="downloadMac"
+                id="btn-mac"
+                aria-disabled="true"
+              >
+                下载 macOS
+              </a>
+              <p class="mac-tip">
+                <span data-i18n="macTipIntro"
+                  >若提示「已损坏，无法打开」，在终端执行：</span
+                >
+                <code>xattr -cr /Applications/PetOS.app</code>
+              </p>
+            </div>
           </div>
           <p class="hero-meta" id="download-status" aria-live="polite" data-i18n="downloadLoading">
             正在从 GitHub 获取最新版本…
