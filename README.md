@@ -50,4 +50,4 @@
 
 ## 联系
 
-微信：`lifemindx`
+邮箱：`omlovework@gmail.com`

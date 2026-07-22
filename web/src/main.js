@@ -5,6 +5,13 @@ import {
   pathForLocale,
   t,
 } from './i18n/index.js'
+import {
+  captureDownloadClick,
+  capturePageview,
+  initWebAnalytics,
+} from './analytics.js'
+
+initWebAnalytics()
 
 const RELEASE_API =
   'https://api.github.com/repos/omlovelife/PetOS-Agent/releases/latest'
@@ -86,9 +93,14 @@ function syncHistoryPath(locale, replace = false) {
  * @param {{ push?: boolean, manual?: boolean }} [opts]
  */
 function setLocale(locale, opts = {}) {
+  const prev = currentLocale
   currentLocale = applyI18n(locale)
   if (opts.manual) persistManualLocale(currentLocale)
   if (opts.push !== false) syncHistoryPath(currentLocale, false)
+  // Initial load already sends $pageview via posthog.init; only count real navigations here.
+  if (opts.manual || (opts.push === false && prev !== currentLocale)) {
+    capturePageview()
+  }
 
   if (cachedRelease) applyRelease(cachedRelease)
   else {
@@ -250,10 +262,14 @@ document.querySelectorAll('[data-download]').forEach((el) => {
   el.addEventListener('click', (event) => {
     if (!(el instanceof HTMLAnchorElement)) return
     const url = el.getAttribute('href') || ''
+    const platformAttr = el.getAttribute('data-download')
+    const platform =
+      platformAttr === 'win' || platformAttr === 'mac' ? platformAttr : 'releases'
     if (!url || url.startsWith('#') || el.getAttribute('aria-disabled') === 'true') {
       event.preventDefault()
       return
     }
+    captureDownloadClick(platform, url)
     if (url.includes('github.com') && url.includes('/releases/download/')) {
       event.preventDefault()
       startFileDownload(url)
