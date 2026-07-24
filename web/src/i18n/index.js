@@ -78,6 +78,12 @@ export function applyI18n(locale) {
     el.setAttribute('aria-label', dict[/** @type {keyof typeof dict} */ (key)])
   })
 
+  document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-alt')
+    if (!key || !(key in dict)) return
+    el.setAttribute('alt', dict[/** @type {keyof typeof dict} */ (key)])
+  })
+
   document.title = dict.metaTitle
   setMeta('description', dict.metaDescription)
   setMeta('keywords', dict.metaKeywords)

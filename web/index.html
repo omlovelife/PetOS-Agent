@@ -5,50 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="PetOS：成长陪伴的 AI 宠物 Agent。常驻桌面、自主成长、本地记忆，越相处越懂你。支持 Windows 与 macOS。"
+      content="PetOS：自主走动、自主对话的桌面 AI 宠物，也陪番茄钟。兼容 Codex 宠物规范。支持 Windows 与 macOS。"
     />
-    <meta
-      name="keywords"
-      content="PetOS,桌面宠物,AI Agent,桌面宠物Agent,成长陪伴,本地记忆,电子宠物"
-    />
+    <meta name="keywords" content="PetOS,桌面宠物,AI宠物,Codex宠物,番茄钟,自主对话,本地记忆,电子宠物" />
     <meta name="author" content="PetOS" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta name="theme-color" content="#1a3d32" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="PetOS" />
-    <meta property="og:url" content="https://petos.lifemindx.com/" />
-    <meta property="og:title" content="PetOS · 成长陪伴的 AI 宠物 Agent" />
+    <meta property="og:url" content="https://www.petos.one/" />
+    <meta property="og:title" content="PetOS · 自主走动的桌面 AI 宠物" />
     <meta
       property="og:description"
-      content="常驻桌面的 AI 宠物 Agent。自主成长、记住相处，越陪越懂你。"
+      content="自主运动、自主对话、番茄钟陪伴。兼容 Codex 宠物规范，更多功能开发中。"
     />
     <meta property="og:locale" content="zh_CN" />
-    <meta property="og:image" content="https://petos.lifemindx.com/mark.png" />
+    <meta property="og:image" content="https://www.petos.one/og-cover.jpg" />
     <meta property="og:image:alt" content="PetOS" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="PetOS · 成长陪伴的 AI 宠物 Agent" />
+    <meta name="twitter:title" content="PetOS · 自主走动的桌面 AI 宠物" />
     <meta
       name="twitter:description"
-      content="常驻桌面的 AI 宠物 Agent。自主成长、记住相处，越陪越懂你。"
+      content="自主运动、自主对话、番茄钟陪伴。兼容 Codex 宠物规范，更多功能开发中。"
     />
-    <meta name="twitter:image" content="https://petos.lifemindx.com/mark.png" />
-    <link rel="canonical" href="https://petos.lifemindx.com/" />
-    <link rel="alternate" hreflang="zh-Hans" href="https://petos.lifemindx.com/" />
-    <link rel="alternate" hreflang="zh-Hant" href="https://petos.lifemindx.com/zh-TW/" />
-    <link rel="alternate" hreflang="en" href="https://petos.lifemindx.com/en/" />
-    <link rel="alternate" hreflang="ja" href="https://petos.lifemindx.com/ja/" />
-    <link rel="alternate" hreflang="ko" href="https://petos.lifemindx.com/ko/" />
-    <link rel="alternate" hreflang="x-default" href="https://petos.lifemindx.com/" />
-    <link rel="icon" href="/icon.ico" sizes="any" />
-    <link rel="shortcut icon" href="/icon.ico" />
+    <meta name="twitter:image" content="https://www.petos.one/og-cover.jpg" />
+    <link rel="canonical" href="https://www.petos.one/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://www.petos.one/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://www.petos.one/zh-TW/" />
+    <link rel="alternate" hreflang="en" href="https://www.petos.one/en/" />
+    <link rel="alternate" hreflang="ja" href="https://www.petos.one/ja/" />
+    <link rel="alternate" hreflang="ko" href="https://www.petos.one/ko/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.petos.one/" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="180x180" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
+      id="font-base"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Noto+Sans+SC:wght@400;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
-    <title>PetOS · 成长陪伴的 AI 宠物 Agent</title>
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Noto+Sans+SC:wght@400;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <title>PetOS · 自主走动的桌面 AI 宠物</title>
     <link rel="stylesheet" href="/src/styles.css" />
     <script type="application/ld+json">
       {
@@ -57,18 +62,10 @@
         "name": "PetOS",
         "applicationCategory": "DesktopApplication",
         "operatingSystem": "Windows, macOS",
-        "description": "A desktop AI pet agent for growth and companionship. Local memory by default, bring your own model.",
-        "url": "https://petos.lifemindx.com/",
-        "image": "https://petos.lifemindx.com/mark.png",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "lifemindx"
-        }
+        "description": "An AI pet that actually lives on your desktop.",
+        "url": "https://www.petos.one/",
+        "image": "https://www.petos.one/og-cover.jpg",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
       }
     </script>
   </head>
@@ -83,9 +80,8 @@
         </a>
         <div class="top-tools">
           <nav class="top-nav" data-i18n-aria="navAria" aria-label="页面导航">
-            <a href="#grow" data-i18n="navGrow">成长陪伴</a>
-            <a href="#features" data-i18n="navFeatures">能力</a>
-            <a href="#start" data-i18n="navStart">开始</a>
+            <a href="#live" data-i18n="navGrow">它活着</a>
+            <a href="#trust" data-i18n="navFeatures">本机记忆</a>
             <a class="nav-download" href="#download" data-i18n="navDownload">下载</a>
           </nav>
           <label class="lang-switcher">
@@ -103,24 +99,27 @@
     </header>
 
     <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-brand">
+      <section class="hero" id="top" data-pet-section="top" aria-labelledby="hero-brand">
         <div class="hero-media" aria-hidden="true">
-          <img
-            class="hero-photo"
-            src="/hero-desk.png"
-            alt=""
-            width="1600"
-            height="900"
-            fetchpriority="high"
-          />
+          <picture>
+            <source srcset="/hero-desk.webp" type="image/webp" />
+            <img
+              class="hero-photo"
+              src="/hero-desk.jpg"
+              alt=""
+              width="1600"
+              height="900"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
           <div class="hero-veil"></div>
-          <div class="hero-glow"></div>
         </div>
-        <div class="hero-copy">
+        <div class="hero-copy hero-enter">
           <p class="hero-brand" id="hero-brand">PetOS</p>
-          <h1 class="hero-title" data-i18n="heroTitle">成长陪伴的 AI 宠物 Agent</h1>
+          <h1 class="hero-title" data-i18n="heroTitle">桌角住着一只会自己动的 AI 宠物</h1>
           <p class="hero-lead" data-i18n="heroLead">
-            常驻桌面，陪着你一起长大。自主活动、记住相处，越陪越懂你；密钥与记忆默认留在本机。
+            自主走动、自主对话，也会陪你番茄钟。兼容 Codex 宠物规范，装上就能养。
           </p>
           <div class="hero-cta" id="download">
             <a
@@ -130,9 +129,8 @@
               data-i18n="downloadWin"
               id="btn-win"
               aria-disabled="true"
+              >下载 Windows</a
             >
-              下载 Windows
-            </a>
             <div class="mac-download">
               <a
                 class="btn btn-secondary"
@@ -141,128 +139,116 @@
                 data-i18n="downloadMac"
                 id="btn-mac"
                 aria-disabled="true"
+                >下载 macOS</a
               >
-                下载 macOS
-              </a>
               <p class="mac-tip">
-                <span data-i18n="macTipIntro"
-                  >若提示「已损坏，无法打开」，在终端执行：</span
-                >
+                <span data-i18n="macTipIntro">若提示「已损坏，无法打开」，在终端执行：</span>
                 <code>xattr -cr /Applications/PetOS.app</code>
               </p>
             </div>
           </div>
           <p class="hero-meta" id="download-status" aria-live="polite" data-i18n="downloadLoading">
-            正在从 GitHub 获取最新版本…
+            正在获取最新版本…
           </p>
         </div>
       </section>
 
-      <section class="section grow" id="grow" aria-labelledby="grow-title">
+      <section class="section live" id="live" data-pet-section="grow" aria-labelledby="live-title">
         <div class="section-inner reveal">
-          <h2 id="grow-title" data-i18n="growTitle">成长，是相处出来的</h2>
+          <h2 id="live-title" data-i18n="growTitle">它自己会动，也会自己聊</h2>
           <p class="section-lead" data-i18n="growLead">
-            PetOS 把桌面宠物做成会成长的 AI Agent：它会陪着你活动、说话、安静，并把每一次相处写进本地记忆。
+            不是循环壁纸。它会在桌面上走动、发呆，并用宠物身份和你对话。
           </p>
-          <ul class="grow-list">
+          <ul class="moment-list">
             <li>
-              <strong data-i18n="growItem1Title">陪伴在侧</strong>
+              <strong data-i18n="growItem1Title">自主运动</strong>
               <span data-i18n="growItem1Body"
-                >透明置顶常驻桌面。走走停停、点点摸摸，像一只真正待在你身边的小伙伴。</span
+                >透明置顶常驻桌面，走走停停，摸头招手、摸身子开心、摸爪子跳跃。</span
               >
             </li>
             <li>
-              <strong data-i18n="growItem2Title">自主成长</strong>
+              <strong data-i18n="growItem2Title">自主对话</strong>
               <span data-i18n="growItem2Body"
-                >对话与经历按宠物隔离保存。相处越久，回应越贴近「你的那一只」。</span
+                >桌面气泡里始终以宠物身份回应，记忆按宠物隔离，越聊越像你的那一只。</span
               >
             </li>
             <li>
-              <strong data-i18n="growItem3Title">安静懂你</strong>
+              <strong data-i18n="growItem3Title">番茄钟陪伴</strong>
               <span data-i18n="growItem3Body"
-                >专注模式、勿扰时段、话唠程度可调。番茄钟进行时它会收敛存在感。</span
+                >专注模式与勿扰时段可调。番茄钟进行时它会收敛存在感，不打断你。</span
               >
             </li>
           </ul>
         </div>
       </section>
 
-      <section class="section features" id="features" aria-labelledby="features-title">
+      <section class="section trust" id="trust" data-pet-section="features" aria-labelledby="trust-title">
         <div class="section-inner reveal">
-          <h2 id="features-title" data-i18n="featuresTitle">桌面宠物系统</h2>
-          <p class="section-lead" data-i18n="featuresLead">
-            围绕成长与陪伴展开：存在感、互动、记忆，以及你对自己数据的控制。
-          </p>
-
-          <div class="feature-spotlight">
-            <h3 data-i18n="spotlightTitle">始终是宠物，陪着你长大</h3>
+          <div class="trust-panel">
+            <h2 id="trust-title" data-i18n="spotlightTitle">兼容 Codex 宠物，数据留在本机</h2>
             <p data-i18n="spotlightBody">
-              桌面气泡是唯一聊天入口。它以宠物身份回应，不跳出人设，陪伴感来自相处，而不是通用问答。
+              支持 Codex / Petdex 宠物规范，可导入更多伙伴。密钥与记忆默认只存本机；更多能力持续开发中。
             </p>
           </div>
-
-          <ul class="feature-grid">
+          <ul class="trust-points">
             <li>
-              <h3 data-i18n="feature1Title">常驻陪伴</h3>
-              <p data-i18n="feature1Body">
-                透明置顶、可拖动互动。没有突兀的任务栏入口，像贴在桌面上的小生命。
-              </p>
-            </li>
-            <li>
-              <h3 data-i18n="feature2Title">本地成长记忆</h3>
-              <p data-i18n="feature2Body">
-                密钥与记忆默认只存在本机。联网能力由你显式配置，PetOS 不提供模型服务。
-              </p>
+              <h3 data-i18n="feature1Title">Codex 宠物规范</h3>
+              <p data-i18n="feature1Body">内置豆包，也可从 Petdex 或本地文件夹导入符合规范的宠物。</p>
             </li>
             <li>
               <h3 data-i18n="feature3Title">自备模型</h3>
-              <p data-i18n="feature3Body">
-                填入 OpenAI 兼容的 Base URL、Key 与模型名，即可开始对话与成长。
-              </p>
+              <p data-i18n="feature3Body">填入 OpenAI 兼容的 Base URL、Key 与模型名即可开始对话。</p>
             </li>
             <li>
-              <h3 data-i18n="feature4Title">选你的伙伴</h3>
-              <p data-i18n="feature4Body">
-                内置默认伙伴，也可从 Petdex 或本地文件夹导入。每只宠物有独立记忆空间。
-              </p>
+              <h3 data-i18n="feature4Title">持续更新</h3>
+              <p data-i18n="feature4Body">更多陪伴与互动能力开发中，下载即用当前版本，后续持续进化。</p>
             </li>
           </ul>
         </div>
       </section>
 
-      <section class="section start" id="start" aria-labelledby="start-title">
+      <section class="section start" id="start" data-pet-section="start" aria-labelledby="start-title">
         <div class="section-inner reveal">
-          <h2 id="start-title" data-i18n="startTitle">开始陪伴</h2>
+          <h2 id="start-title" data-i18n="startTitle">装上，养一只</h2>
           <ol class="steps">
             <li>
-              <div>
-                <h3 data-i18n="step1Title">安装</h3>
-                <p data-i18n="step1Body">下载最新安装包，装好后打开即可。</p>
-              </div>
+              <h3 data-i18n="step1Title">下载安装</h3>
+              <p data-i18n="step1Body">Windows 或 macOS，打开就能见到它。</p>
             </li>
             <li>
-              <div>
-                <h3 data-i18n="step2Title">选宠物</h3>
-                <p data-i18n="step2Body">使用默认伙伴，或导入你喜欢的形象与设定。</p>
-              </div>
+              <h3 data-i18n="step2Title">选宠物</h3>
+              <p data-i18n="step2Body">默认豆包，或导入你喜欢的形象。</p>
             </li>
             <li>
-              <div>
-                <h3 data-i18n="step3Title">开始相处</h3>
-                <p data-i18n="step3Body">配置自己的 API，和它说话、陪伴，让它慢慢长大。</p>
-              </div>
+              <h3 data-i18n="step3Title">开始相处</h3>
+              <p data-i18n="step3Body">接上你的 API，摸它、聊它，让它慢慢长大。</p>
             </li>
           </ol>
+          <div class="start-cta">
+            <a class="btn btn-primary" href="#download" data-download="win" data-i18n="downloadWin"
+              >下载 Windows</a
+            >
+            <a class="btn btn-ink" href="#download" data-download="mac" data-i18n="downloadMac"
+              >下载 macOS</a
+            >
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
+    <aside class="pet-companion" id="pet-companion" data-state="wave">
+      <p class="pet-hint" id="pet-hint" data-i18n="petHint">拖一拖 · 摸一摸</p>
+      <p class="pet-bubble" id="pet-bubble" hidden aria-live="polite"></p>
+      <div class="pet-companion-glow" aria-hidden="true"></div>
+      <div class="pet-sprite" id="pet-sprite"></div>
+    </aside>
+
+    <footer class="site-footer" data-pet-section="footer">
       <div class="footer-atmosphere" aria-hidden="true"></div>
       <div class="footer-inner">
         <div class="footer-brand-block">
           <p class="footer-brand">PetOS</p>
-          <p class="footer-tagline" data-i18n="footerTagline">成长陪伴的 AI 宠物 Agent。</p>
+          <p class="footer-tagline" data-i18n="footerTagline">桌角住着一只 AI 宠物。</p>
           <p class="footer-download-line">
             <a href="#download" data-download="win" class="footer-dl">Windows</a>
             <span class="dot" aria-hidden="true">·</span>
@@ -271,7 +257,6 @@
             <span><span data-i18n="footerLatest">最新</span> <span id="footer-version">…</span></span>
           </p>
         </div>
-
         <div class="footer-grid">
           <div>
             <h3 class="footer-heading" data-i18n="footerContact">联系</h3>
@@ -280,7 +265,25 @@
                 <span data-i18n="footerEmailLabel">邮箱</span>
                 <a class="mono" href="mailto:omlovework@gmail.com">omlovework@gmail.com</a>
               </li>
+              <li>
+                <span data-i18n="footerQqLabel">QQ 群</span>
+                <span class="mono">1082935965</span>
+              </li>
             </ul>
+            <figure class="footer-qq">
+              <picture>
+                <source srcset="/qq-group.webp" type="image/webp" />
+                <img
+                  src="/qq-group.jpg"
+                  alt="PetOS QQ 群二维码"
+                  width="240"
+                  height="428"
+                  loading="lazy"
+                  decoding="async"
+                  data-i18n-alt="footerQqAlt"
+                />
+              </picture>
+            </figure>
           </div>
           <div>
             <h3 class="footer-heading" data-i18n="footerNotes">说明</h3>
@@ -290,7 +293,6 @@
             </ul>
           </div>
         </div>
-
         <div class="footer-bottom">
           <p>© <span id="year">2026</span> PetOS</p>
           <p class="footer-disclaimer" data-i18n="footerDisclaimer">

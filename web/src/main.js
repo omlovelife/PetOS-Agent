@@ -5,13 +5,40 @@ import {
   pathForLocale,
   t,
 } from './i18n/index.js'
-import {
-  captureDownloadClick,
-  capturePageview,
-  initWebAnalytics,
-} from './analytics.js'
+import { initPetCompanion } from './pet-companion.js'
 
-initWebAnalytics()
+/** @type {Promise<typeof import('./analytics.js')> | null} */
+let analyticsPromise = null
+
+function loadAnalytics() {
+  if (!analyticsPromise) {
+    analyticsPromise = import('./analytics.js').then((mod) => {
+      mod.initWebAnalytics()
+      return mod
+    })
+  }
+  return analyticsPromise
+}
+
+/** Defer PostHog so first paint / interaction stay light. */
+function scheduleAnalytics() {
+  const kick = () => {
+    loadAnalytics()
+    window.removeEventListener('pointerdown', kick)
+    window.removeEventListener('keydown', kick)
+    window.removeEventListener('scroll', kick)
+  }
+  window.addEventListener('pointerdown', kick, { once: true, passive: true })
+  window.addEventListener('keydown', kick, { once: true })
+  window.addEventListener('scroll', kick, { once: true, passive: true })
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(() => kick(), { timeout: 5000 })
+  } else {
+    window.setTimeout(kick, 3500)
+  }
+}
+
+scheduleAnalytics()
 
 const RELEASE_API =
   'https://api.github.com/repos/omlovelife/PetOS-Agent/releases/latest'
@@ -33,6 +60,7 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear())
 
 let currentLocale = resolveInitialLocale()
 applyI18n(currentLocale)
+initPetCompanion()
 syncHistoryPath(currentLocale, true)
 
 /**
@@ -99,7 +127,7 @@ function setLocale(locale, opts = {}) {
   if (opts.push !== false) syncHistoryPath(currentLocale, false)
   // Initial load already sends $pageview via posthog.init; only count real navigations here.
   if (opts.manual || (opts.push === false && prev !== currentLocale)) {
-    capturePageview()
+    loadAnalytics().then((m) => m.capturePageview())
   }
 
   if (cachedRelease) applyRelease(cachedRelease)
@@ -269,7 +297,7 @@ document.querySelectorAll('[data-download]').forEach((el) => {
       event.preventDefault()
       return
     }
-    captureDownloadClick(platform, url)
+    loadAnalytics().then((m) => m.captureDownloadClick(platform, url))
     if (url.includes('github.com') && url.includes('/releases/download/')) {
       event.preventDefault()
       startFileDownload(url)
