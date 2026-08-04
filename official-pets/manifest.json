@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-08-04T12:54:00+08:00",
+  "pets": [
+    {
+      "id": "ginger",
+      "displayName": "豆包",
+      "description": "一只毛茸茸的橘色侏儒兔，活泼、温暖，也喜欢安静地陪在你身边。",
+      "species": "other",
+      "version": "2.0.0",
+      "previewUrl": "https://raw.githubusercontent.com/omlovelife/PetOS-Agent/main/official-pets/ginger/preview.png",
+      "spritesheetUrl": "https://raw.githubusercontent.com/omlovelife/PetOS-Agent/main/official-pets/ginger/spritesheet.webp",
+      "petJsonUrl": "https://raw.githubusercontent.com/omlovelife/PetOS-Agent/main/official-pets/ginger/pet.json",
+      "atlas": {
+        "cols": 8,
+        "rows": 11,
+        "cellWidth": 192,
+        "cellHeight": 208,
+        "framesPerState": [6, 8, 8, 4, 5, 8, 6, 6, 6, 8, 8],
+        "spriteVersionNumber": 2
+      }
+    },
+    {
+      "id": "mint",
+      "displayName": "Mint",
+      "description": "灰白相间、拥有翠绿色大眼睛与薄荷绿领巾的灵动猫咪。",
+      "species": "cat",
+      "version": "2.0.0",
+      "previewUrl": "https://raw.githubusercontent.com/omlovelife/PetOS-Agent/main/official-pets/mint/preview.png",
+      "spritesheetUrl": "https://raw.githubusercontent.com/omlovelife/PetOS-Agent/main/official-pets/mint/spritesheet.webp",
+      "petJsonUrl": "https://raw.githubusercontent.com/omlovelife/PetOS-Agent/main/official-pets/mint/pet.json",
+      "atlas": {
+        "cols": 8,
+        "rows": 11,
+        "cellWidth": 192,
+        "cellHeight": 208,
+        "framesPerState": [6, 8, 8, 4, 5, 8, 6, 6, 6, 8, 8],
+        "spriteVersionNumber": 2
+      }
+    }
+  ]
+}
